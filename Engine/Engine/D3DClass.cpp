@@ -43,7 +43,20 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
 
+	// 수직동기화 설정을 저장
+	m_vsync_enabled = vsync;
 
+	// DirectX 그래픽 인터페이스 팩토리를 만듭니다.
+	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
+	if (FAILED(result)) {
+		return false;
+	}
+	// 팩토리 객체를 사용하여 첫번째 그래픽카드 인터페이스에 대한 어댑터를 만든다.
+	result = factory->EnumAdapters(0, &adapter);
+	if (FAILED(result)) {
+		return false;
+	}
+	// 출력 [모니터]에 대한 첫번째 어댑터를 나열
 }
 
 void D3DClass::Shutdown()
