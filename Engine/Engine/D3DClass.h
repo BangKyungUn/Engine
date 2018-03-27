@@ -10,7 +10,7 @@
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
-#include <D3DX10math.h>
+#include <d3dx10math.h>
 
 class D3DClass
 {
